@@ -1,41 +1,35 @@
 .lista-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  background: #FAF9F6; 
+  border-radius: 4px; // Cantos retos = Rigor Institucional
+  padding: 8px 24px;
+  border: 1px solid #C0C0C0; // Linha de Prata Escovada
+  box-shadow: 0 4px 12px rgba(45, 41, 38, 0.02);
 
   .transacao-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 16px;
-    border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 24px 0;
+    background: transparent;
+    border-bottom: 1px solid #E5E1D8; 
+    transition: all 0.2s ease;
     cursor: pointer;
 
+    &:last-child {
+      border-bottom: none;
+    }
+
     &:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.15);
-      transform: scale(1.01);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      background: rgba(242, 235, 211, 0.3);
+      padding-left: 8px; // Feedback sutil em vez de mover todo o bloco
     }
 
     .info-lado-esquerdo {
       display: flex;
       align-items: center;
-      gap: 16px;
-
-      .icone {
-        width: 45px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 12px;
-        font-size: 1.4rem;
-      }
+      gap: 0; // Removido o gap grande que era para o ícone
 
       .detalhes {
         display: flex;
@@ -43,44 +37,67 @@
 
         .descricao {
           margin: 0;
-          font-weight: 600;
-          color: #f1f1f1;
+          font-family: 'Inter', sans-serif;
+          font-weight: 400; // Letra equilibrada
+          color: #2D2926; 
           font-size: 0.95rem;
+          letter-spacing: 0.01em;
+          text-transform: uppercase; // Traz seriedade ao nome da transação
         }
 
         .data {
-          font-size: 0.8rem;
-          color: #888;
+          font-family: 'Inter', sans-serif;
+          font-weight: 300; // Data bem fininha
+          font-size: 0.75rem;
+          color: #797670; 
+          margin-top: 4px;
+          text-transform: uppercase;
         }
       }
     }
 
     .valor {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300; // Valores finos transmitem sofisticação tecnológica
+      font-size: 1.1rem;
+      color: #2D2926;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.5px;
     }
 
-    // Classe dinâmica injetada pelo [class.entrada]
     &.entrada {
       .valor {
-        color: #00ff88; // Verde Neon
-        &::before { content: '+ '; }
+        color: #8C6D3F; // Bronze para prosperidade
+        font-weight: 400; // Leve destaque no peso para entradas
       }
     }
 
     &:not(.entrada) {
       .valor {
-        color: #f8f9fa; // Branco/Cinza para saídas (mais elegante que vermelho puro)
+        color: #2D2926; // Ébano sóbrio para saídas
       }
     }
   }
 
   .empty-state {
     text-align: center;
-    padding: 60px 20px;
-    color: #666;
-    border: 2px dashed #222;
-    border-radius: 20px;
+    padding: 100px 20px;
+    color: #797670;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+    p {
+      font-size: 0.8rem;
+    }
+
+    // O ícone 🏛️ pode ser mantido ou removido no HTML
+    &::before {
+      content: '—'; // Um separador minimalista em vez de ícone
+      display: block;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
   }
 }

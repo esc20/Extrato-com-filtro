@@ -1,0 +1,28 @@
+<div class="resumo-grid">
+  <!-- Card Principal de Saldo -->
+  <div class="card-balance">
+    <span class="label">Saldo em conta</span>
+    <h2 [class.negativo]="saldo() < 0">
+      {{ saldo() | currency:'BRL' }}
+    </h2>
+  </div>
+
+  <!-- Cards de Fluxo (Entradas/Saídas) -->
+  <div class="flow-container">
+    <div class="card-flow entrada">
+      <span class="dot"></span>
+      <div class="info">
+        <span class="label">Entradas</span>
+        <p>{{ entradas() | currency:'BRL' }}</p>
+      </div>
+    </div>
+
+    <div class="card-flow saida">
+      <span class="dot"></span>
+      <div class="info">
+        <span class="label">Saídas</span>
+        <p>{{ saidas() | currency:'BRL' }}</p>
+      </div>
+    </div>
+  </div>
+</div>
